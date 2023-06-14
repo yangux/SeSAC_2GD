@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>제목</h1>
+    <h2>오늘의 일기</h2>
+    <h3>h3입니다.</h3>
+    <p>오늘은 날씨가 좋았다. 첫번째 html 수업을 했다.
+        <br />
+        멋진 퍼블리셔가 되는 날도 얼마 남지 않았다!
+    </p>
+    <hr />
+    <h4>오늘의 할 일</h4>
+    <!-- ul type의 속성값
+        - disc(기본값, 까만동그라미)
+        - square
+        - circle
+        - none
+    -->
+    <ul type="circle">
+        <li>html 복습하기</li>
+        <li>맛집 찾기</li>
+        <li>운동하기</li>
+    </ul>
+
+    <h4>아메리카노 만드는 법</h4>
+    <!-- ol type의 속성값
+        - 1
+        - A
+        - a
+        - I
+        - i
+    -->
+    <ol type="I">
+        <li><b>물</b>을 <strong>넣습니다.</strong></li>
+        <li><i>얼음</i>을 <em>넣습니다.</em></li>
+        <li><del>에스프레소</del> <u>샷</u>을 &nbsp;&nbsp;&nbsp;넣습니다.</li>
+    </ol>
+
+    <!-- 리스트 안에 리스트 넣기 -->
+    <h5>내가 좋아하는 음식</h5>
+    <ul>
+        <li>양식
+            <ol type="A">
+                <li>감바스</li>
+                <li>스테이크</li>
+            </ol>
+        </li>
+        <li>한식
+            <ol>
+                <li>김치찌개</li>
+                <li>치킨</li>
+            </ol>
+        </li>
+        <li>일식
+            <ol type="a">
+                <li>초밥
+                    <ul>
+                        <li>계란초밥</li>
+                        <li>연어초밥</li>
+                    </ul>
+                </li>
+                <li>텐동</li>
+            </ol>
+        </li>
+    </ul>
+
+    <!-- details & summary tag: 항상 details 안에 summary를 쓴다. -->
+    <details>
+        <summary>제목</summary>
+        <ul>
+            <li>아무태그나</li>
+            <li>넣어도 돼요</li>
+        </ul>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque exercitationem facilis maxime temporibus?
+            Inventore alias odio, at, deleniti incidunt necessitatibus expedita quae, officiis commodi totam
+            reprehenderit tempore perspiciatis optio aliquam.</div>
+    </details>
+
+    <h3>img & a 태그</h3>
+    <!-- img 태그 속성
+        - src: 이미지 경로
+        - alt: 이미지 설명
+     -->
+    <!-- a 태그 속성 
+        - href: 이동 경로
+        - target: 웹페이지가 열릴 위치
+        - title: a 태그에 대한 설명
+    -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvVjQTBocuF1cGpLL2OWg-EPK5f3g2UEibGYplH8P7WA&s"
+        alt="샐러드 사진" width="300" />
+    <!-- 상대경로와 절대경로
+        - 상대경로: 현재 위치로부터 경로를 찾는 것
+        - 절대경로: 상단의 폴더부터 차례대로 경로를 찾는 것
+    -->
+    <img src="/html/img/pizza.jpeg" alt="피자 사진" width="300" /> <!-- 절대경로 -->
+    <img src="./img/pizza.jpeg" alt="피자 사진" width="300" /> <!-- 상대경로 -->
+
+    <br />
+    <a href="https://www.naver.com/" target="_blank" title="mouse 커서를 올리면 나타나는 문장입니다.">네이버로 이동</a>
+    <br />
+    <a href="../test/practice01.html" target="_blank">카페메뉴</a>
+    <br />
+    <br />
+
+    <!-- 새로운 사진을 저장한 후 
+    사진을 클릭했을 때 구글로 이동하도록 만들기 -->
+    <a href="https://www.google.co.kr/" target="_blank" title="구글로 이동">
+        <img src="./img/coffee.jpeg" alt="커피 사진" width="500">
+    </a>
+</body>
+
+</html>
