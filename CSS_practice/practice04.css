@@ -1,0 +1,41 @@
+h2:hover {
+    background-color: black;
+    color: white;
+}
+
+textarea {
+    width: 100%;
+}
+textarea:hover {
+    background-color: rgb(252, 240, 240);
+    outline-style: outset;
+}
+
+#red:checked + label {
+    background-color: red;
+    color: white;
+}
+#blue:checked + label {
+    background-color: blue;
+    color: white;
+}
+#yellow:checked + label {
+    background-color: yellow;
+}
+
+textarea {
+    width: 500px;
+}
+
+button {
+    float: right;
+    background-color: salmon;
+    color: white;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+button:active{
+    background-color: #ddd;
+    color: salmon;
+}
