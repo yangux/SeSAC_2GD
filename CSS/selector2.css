@@ -1,0 +1,44 @@
+section {
+    border: 1px solid blue;
+}
+
+article {
+    height: 100px;
+    border: 1px solid salmon;
+}
+
+/* 직계 자식 선택자 */
+.first > h3 {
+    background-color: blue;
+    color: #fff;
+    text-align: center;
+}
+.second > h3 {
+    background-color: beige;
+    color: midnightblue;
+}
+
+/* 후손 선택자 */
+ .first li {
+    font-size: 10px;
+ }
+
+ .first > article > ul > li {
+    font-size: 10px;
+ }
+
+ /* 인접 형제 선택자 */
+ #fairy + li {
+    background-color: aqua;
+    color: blueviolet;
+ }
+
+ #fairy ~ li {
+    background-color: red;
+    color: #fff
+ }
+
+ /* 일치 선택자 */
+ article.first {
+    color: violet
+ }
