@@ -1,0 +1,31 @@
+body {
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+main h1 {
+    color: green;
+}
+
+main table {
+    width: 100%;
+}
+
+main table tr th {
+    line-height: 80px;
+}
+
+/* html의 table 태그에 cellpadding을 줌 */
+/* main table tr td {
+    height: 120px;
+    text-align: right;
+    vertical-align: top;
+} */
+
+main table tr *:first-child,
+main table tr td.holiday{
+    color: red;
+}
+main table tr *:last-child {
+    color: blue;
+}

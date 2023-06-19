@@ -1,0 +1,52 @@
+/* font-family: 'Moirai One', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gasoek+One&display=swap');
+@font-face {
+    font-family: 'neurimboGothicRegular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/neurimboGothicRegular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HANAMDAUM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-link {
+    font-family: 'Moirai One', cursive;
+}
+
+.font-import {
+    font-family: 'Bagel Fat One', cursive;
+}
+
+.noonnu-font {
+    font-family: 'neurimboGothicRegular', cursive;
+}
+
+.google {
+    font-family: 'Gasoek One', sans-serif;
+
+}
+
+.noonnu {
+    font-family: 'HANAMDAUM', sans-serif;
+}
+
+.container {
+    width: 500px;
+    background-color: aliceblue;
+}
+
+.sentences {
+    font-weight: 100;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: line-through;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

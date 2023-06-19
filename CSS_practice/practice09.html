@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 쌓임 순서 및 z-index</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            border: 2px dashed skyblue;
+            position: relative;
+        }
+
+        .container div {
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            position: absolute;
+        }
+
+        .container .item1 {
+            background-color: pink;
+            z-index: 10;
+        }
+
+        .container .item2 {
+            background-color: palevioletred;
+            top: 30px;
+            left: 30px;
+        }
+
+        .container .item3 {
+            background-color: brown;
+            top: 30px;
+            left: 60px;
+        }
+
+        .grass {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .grass div {
+            border-radius: 50px;
+        }
+
+        .grass img {
+            z-index: 1;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .body {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            right: 100px;
+        }
+
+        .body1 {
+            background-color: blue;
+            bottom: 230px;
+            right: 250px;
+        }
+
+        .body2 {
+            background-color: rgb(53, 53, 244);
+            bottom: 170px;
+            right: 200px;
+        }
+
+        .body3 {
+            background-color: rgb(81, 81, 252);
+            bottom: 110px;
+            right: 190px;
+        }
+
+        .body4 {
+            background-color: rgb(132, 132, 247);
+            bottom: 60px;
+            right: 150px;
+        }
+
+        .body5 {
+            background-color: rgb(180, 180, 252);
+            bottom: 20px;
+            z-index: 10;
+        }
+
+        .eye-white {
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .eye-black {
+            background-color: black;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1">item1</div>
+        <div class="item2">item2</div>
+        <div class="item3">item3</div>
+    </div>
+
+    <!-- 애벌레 만들기 -->
+    <div class="grass">
+        <img src="./img/grass.png" alt="grass image">
+        <div class="body body1">
+            <div class="eye-white">
+                <div class="eye-black"></div>
+            </div>
+        </div>
+        <div class="body body2"></div>
+        <div class="body body3"></div>
+        <div class="body body4"></div>
+        <div class="body body5"></div>
+    </div>
+</body>
+
+</html>

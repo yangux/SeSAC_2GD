@@ -1,0 +1,24 @@
+body {
+  height: 2000px;
+}
+.background-img {
+  width: 500px;
+  height: 800px;
+  border: 1px solid black;
+
+  background-image: url("./img/small.png");
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+  background-position: center top;
+  background-position: 100px 200px;
+
+  /* 단위, contain, cover */
+  background-size: 50px;
+  background-size: 100px 300px;
+  background-size: contain;
+  /* background-size: cover; */
+
+  background-attachment: fixed;
+}
