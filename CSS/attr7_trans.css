@@ -1,0 +1,80 @@
+.img-box {
+  background-color: plum;
+  width: 400px;
+  height: 250px;
+}
+img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 1px solid red;
+}
+img:hover {
+  /* 
+    순서대로 쓰기
+    1. perspective()
+    2. translate()
+    3. scale()
+    4, rotate()
+    5. skew()
+    */
+
+  /* 이동 함수 */
+  /* transform: translate(200px, 200px); */
+  transform: translateX(200px);
+  transform: translateY(200px);
+
+  /* 크기 함수 */
+  /* transform: scale(2); */
+  transform: scaleX(2);
+  transform: scaleY(0.5);
+  transform: translateX(200px) scaleX(2);
+
+  /* 회전 함수 */
+  transform: rotate(-90deg);
+  transform: perspective(100px) rotateX(45deg);
+  transform: perspective(500px) rotateY(45deg);
+
+  transform: perspective(500px) rotateY(180deg);
+  backface-visibility: hidden;
+
+  /* 기울임 */
+  transform: skew(30deg, 0deg);
+  transform: skewX(60deg);
+  transform: skewY(60deg);
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin-bottom: 1rem;
+}
+.box1:hover {
+  /* transition
+     - transition-property: 속성 이름
+        어떤 속성에 transition 효과를 줄건지
+     - transition-duration: (transition의 필수 속성) 
+        몇 초 동안 변화가 일어날지 초 단위(s)로 작성
+     - transition-timing-function: 시간 함수(기본값: ease)
+     - transition-delay: 동작의 시작 시간을 얼마나 늦출지
+    */
+  background-color: red;
+  width: 200px;
+  transition-property: width;
+  transition-duration: 1s;
+  transition-timing-function: linear;
+  transition-delay: 3s;
+}
+
+.box2 {
+  /* 요소:hover가 아닌 요소에 transition을 주면 hover에서 빠져나올 때도 전환 효과가 적용된다. */
+  /* transition 단축속성(duration 하나만 쓰는 것도 가능): property duration timing-function delay; */
+  transition: all 2s ease 1s;
+}
+.box2:hover {
+  opacity: 0.5;
+  height: 150px;
+  background-color: aqua;
+  transform: translateX(50px);
+}
