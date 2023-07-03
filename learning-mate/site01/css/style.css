@@ -90,10 +90,16 @@ header .container .nav_wrap .menu {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 50px;
+  margin-top: 45px;
 }
 header .container .nav_wrap .menu > li {
   position: relative;
+  height: 34px;
+  width: 120px;
+  overflow: hidden;
+}
+header .container .nav_wrap .menu > li:last-of-type {
+  width: auto;
 }
 
 header .container .nav_wrap .menu li a {
@@ -101,7 +107,9 @@ header .container .nav_wrap .menu li a {
   font-size: 0.937rem;
   font-weight: 400;
 }
-
+header .container .nav_wrap .menu > li .sub_menu {
+  margin-top: 35px;
+}
 header .container .nav_wrap .menu > li .sub_menu li {
   margin: 5px 0;
 }
@@ -116,13 +124,17 @@ header .container .nav_wrap .menu > li .sub_menu li:hover a {
 header .container .nav_wrap .menu .sub_menu_bg {
   position: fixed;
   width: 100%;
-  height: 170px;
+  height: 0;
   background-image: url("../img/menu-bg.jpeg");
   border-bottom: 2px solid #fff;
   top: 123px;
   left: 0;
   z-index: -1;
-  display: none;
+  transition: height 0.5s;
+}
+header .container .nav_wrap .menu > li:hover {
+  height: 200px;
+  transition: height 0.5s;
 }
 
 header
@@ -131,14 +143,17 @@ header
   .menu
   > li:not(.menu > li:last-of-type):hover
   ~ .sub_menu_bg {
-  display: block;
+  height: 165px;
 }
-
+header .container .nav_wrap .menu > li > a {
+  position: relative;
+}
 header
   .container
   .nav_wrap
   .menu
-  > li:not(.menu > li:last-of-type):hover::after {
+  > li:not(.menu > li:last-of-type):hover
+  > a::after {
   content: "";
   display: block;
 
@@ -150,10 +165,10 @@ header
   border-top: 14px solid #fff;
 
   position: absolute;
-  top: 35px;
+  top: 33px;
   left: 0;
   right: 0;
-  margin: 0 auto;
+  margin: auto;
 }
 
 /* main */
