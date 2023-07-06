@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz1</title>
+    <style>
+        h3 {
+            background-color: gray;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>태그 내부의 글자 변경해보기</h3>
+    <div>민트 초코는 <span>맛있다 >_<< /span>
+    </div>
+
+    <h3>속성 변경해보기</h3>
+    <img src="./img/pooh.png" alt="푸" width="300">
+    <p>이요르</p>
+</body>
+<script>
+    // 민트 초코는 맛없다!! 로 변경
+    document.querySelector('span').textContent = '맛없다!!!'
+
+    /*
+    img 태그
+    - 1. src 'eeyore.png'로 변결
+    - 2. alt '이요르'로 변경
+    - 3. 가로 크기 150으로 변경
+    */
+    const img = document.querySelector('img');
+    img.src = './img/eeyore.png';
+    img.alt = '이요르';
+    // img.style.width = '150px'
+    img.setAttribute('width', '150')
+    console.log(img)
+</script>
+
+</html>
