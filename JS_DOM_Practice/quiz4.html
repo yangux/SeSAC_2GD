@@ -102,21 +102,27 @@
     ];
 
     for (let i = 0; i < icecreams.length; i++) {
+      const article = document.createElement('article');
       const img = document.createElement('img');
       const h3 = document.createElement('h3');
-      const div = document.createElement('div');
+      const name = document.createElement('div');
 
+      // img
       img.src = `./img/icecream${i + 1}.png`;
       img.alt = `${icecreams[i]}`;
       img.classList.add('img-box')
-      h3.innerHTML = `Top${i + 1}`
-      h3.style.textAlign = 'center'
-      div.innerHTML = `${icecreams[i]}`;
-      div.style.textAlign = 'center'
 
-      const article = document.createElement('article');
+      // h3
+      h3.innerHTML = `Top${i + 1}`
+      h3.classList.add('text-center')
+
+      // div
+      name.innerHTML = icecreams[i];
+      name.classList.add('text-center')
+
       article.classList.add('article-box');
-      article.append(img, h3, div);
+
+      article.append(img, h3, name);
       section.append(article);
     }
   </script>
