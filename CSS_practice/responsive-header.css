@@ -23,12 +23,14 @@ header .inner {
   margin: 0 auto;
 
   position: relative;
+
+  text-align: center;
 }
 
 /* LOGO  */
-header .inner i {
+header .inner .logo {
   position: absolute;
-
+  left: 5vw;
   line-height: 100px;
   font-size: 50px;
   color: aliceblue;
@@ -51,6 +53,11 @@ header .small-menu {
   display: none;
 }
 
+/* 메뉴바 추가 */
+header .inner .menu-bar {
+  display: none;
+}
+
 /* 미디어 쿼리 작성 
 768px 이하일 때 */
 @media (max-width: 768px) {
@@ -60,7 +67,7 @@ header .small-menu {
   header .inner .menu {
     display: none;
   }
-  header .inner i {
+  header .inner .logo {
     font-size: 30px;
     left: 50%;
     transform: translate(-50%);
@@ -68,7 +75,7 @@ header .small-menu {
   }
 
   /* small menu */
-  header .small-menu {
+  header .click {
     display: block;
   }
   header .small-menu li {
@@ -79,6 +86,16 @@ header .small-menu {
   }
   header .small-menu li:hover {
     background-color: aqua;
+    cursor: pointer;
+  }
+
+  /* menu bar */
+  header .inner .menu-bar {
+    display: block;
+    position: absolute;
+    right: 5vw;
+    line-height: 60px;
+    color: whitesmoke;
     cursor: pointer;
   }
 }

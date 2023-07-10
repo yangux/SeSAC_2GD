@@ -14,13 +14,15 @@
 <body>
     <header>
         <div class="inner">
-            <i class="fa-solid fa-igloo"></i>
+            <i class="fa-solid fa-igloo logo"></i>
+
             <ul class="menu">
                 <li>메뉴1</li>
                 <li>메뉴2</li>
                 <li>메뉴3</li>
                 <li>메뉴4</li>
             </ul>
+            <i class="fa-solid fa-bars menu-bar"></i>
         </div>
 
         <ul class="small-menu">
@@ -30,6 +32,13 @@
             <li>메뉴 </li>
         </ul>
     </header>
+    <script>
+        const bar = document.querySelector('.menu-bar');
+        const menu_s = document.querySelector('.small-menu');
+        bar.addEventListener('click', () => {
+            menu_s.classList.toggle('click')
+        })
+    </script>
 </body>
 
 </html>
