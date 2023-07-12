@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swiper로 전체화면 슬라이드</title>
+    <!-- swiper cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100vh;
+            background-color: coral;
+            opacity: .8;
+        }
+
+        .swiper .swiper-wrapper {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .swiper .swiper-wrapper .swiper-slide {
+            width: 100%;
+            height: 100vh;
+            border: 2px solid tomato;
+            text-align: center;
+            font: bold 30px/100vh 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">slide1</div>
+            <div class="swiper-slide">slide2</div>
+            <div class="swiper-slide">slide3</div>
+            <div class="swiper-slide">slide4</div>
+        </div>
+    </div>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'vertical',
+            loop: false,
+            speed: 1000,
+            mousewheel: true,
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            }
+        })
+    </script>
+</body>
+
+</html>

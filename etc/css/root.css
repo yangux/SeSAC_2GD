@@ -1,0 +1,15 @@
+:root {
+  /* color */
+  --main-red: #dc3545;
+  --main-orange: #fd7e14;
+  --main-yellow: #ffc107;
+
+  /* text */
+  --text-black-800: #000000;
+  --text-black-600: #3a3a3a;
+
+  /* padding & margin */
+  --base-space: 8px;
+
+  /* shadow & theme color */
+}
