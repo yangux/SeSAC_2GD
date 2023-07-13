@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연결 연습</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $.ajax({
+            method: "GET",
+            url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
+            data: { key: '320f8f68d0d2abec2b55b1b8cc29e035', itemPerPage: '20' }
+        })
+            .done(function (data) {
+                console.log(data.movieListResult.movieList)
+                const movieList = data.movieListResult.movieList;
+                const ul = document.querySelector('ul');
+                movieList.forEach((movie) => {
+                    const li = document.createElement('li');
+                    li.innerText = `${movie.movieNm}(${movie.genreAlt})`;
+                    ul.append(li);
+                })
+            });
+    </script>
+</head>
+
+<body>
+    <ul></ul>
+</body>
+
+</html>
