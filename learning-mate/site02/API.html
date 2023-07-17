@@ -8,21 +8,34 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"
         integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script>
-        $.ajax({
-            method: "GET",
-            url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json",
-            data: { key: '320f8f68d0d2abec2b55b1b8cc29e035', itemPerPage: '20' }
-        })
-            .done(function (data) {
-                console.log(data.movieListResult.movieList)
-                const movieList = data.movieListResult.movieList;
-                const ul = document.querySelector('ul');
-                movieList.forEach((movie) => {
-                    const li = document.createElement('li');
-                    li.innerText = `${movie.movieNm}(${movie.genreAlt})`;
-                    ul.append(li);
-                })
-            });
+        // $.ajax({
+        //     method: "GET",
+        //     url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
+        //     data: { key: '320f8f68d0d2abec2b55b1b8cc29e035', targetDt: '20230713' }
+        // })
+        //     .done(function (data) {
+        //         console.log(data)
+        //         console.log(data.boxOfficeResult.dailyBoxOfficeList)
+        //         const movieList = data.boxOfficeResult.dailyBoxOfficeList;
+        //         const ul = document.querySelector('ul');
+        //         movieList.forEach((movie) => {
+        //             const li = document.createElement('li');
+        //             li.innerHTML = `<strong>${movie.rank}위:</strong> ${movie.movieNm}`;
+        //             ul.append(li);
+        //         })
+        //     });
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhM2QxOGQ1NjVlOTY4NDYxYjEyNjQwNWIwYmRhNzU1NyIsInN1YiI6IjY0YjBmYmE1MjUzZmFiMGMzOWJhODJjNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YPM-DmBwkOkd9lQLYoGNR_ZylCpW7jUtVupd1WiQNuU'
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/movie/now_playing', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
     </script>
 </head>
 
