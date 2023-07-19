@@ -25,17 +25,30 @@
         //         })
         //     });
         const options = {
-            method: 'GET',
+            method: "GET",
             headers: {
-                accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhM2QxOGQ1NjVlOTY4NDYxYjEyNjQwNWIwYmRhNzU1NyIsInN1YiI6IjY0YjBmYmE1MjUzZmFiMGMzOWJhODJjNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.YPM-DmBwkOkd9lQLYoGNR_ZylCpW7jUtVupd1WiQNuU'
-            }
+                accept: "application/json",
+                // Authorization:
+                // 인증키  546267675579656f34364f7a526d42
+            },
         };
-
-        fetch('https://api.themoviedb.org/3/movie/now_playing', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
+        fetch(
+            "http://openAPI.seoul.go.kr:8088/546267675579656f34364f7a526d42/json/SJWPerform/1/10",
+            options
+        )
+            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                const body = document.querySelector('body')
+                console.log(response.SJWPerform.row)
+                const list = response.SJWPerform.row
+                let url = list[0]['FILE_URL_MI']
+                console.log(url)
+                const img = document.createElement('img')
+                img.src = url
+                body.append(img)
+            })
+            .catch((err) => console.error(err));
     </script>
 </head>
 
