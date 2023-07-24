@@ -34,13 +34,13 @@
                 const container = document.querySelector('.container')
                 const list = response.SJWPerform.row
                 let date = new Date();
-                date = String(date.getFullYear()) + '0' + String(date.getMonth() + 1) + String(date.getDate());
-                let this_month = date.slice(4, 6);
+                let this_month = Number(date.getMonth()) + 1;
 
                 for (item of list.reverse()) {
                     // 7월
-                    let month_check = item.START_DATE.slice(4, 6) === this_month
-                    if (month_check && Number(item.START_DATE) >= Number(date)) {
+                    let month_check = Number(item.END_DATE.slice(4, 6)) === this_month
+                    let day_check = Number(item.END_DATE.slice(6, 8)) >= date.getDate()
+                    if (month_check && day_check) {
                         const card = document.createElement('div');
                         const item_img = document.createElement('img')
                         const desc_list = document.createElement('ul');
