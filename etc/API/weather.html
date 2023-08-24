@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현재 날씨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-color: aliceblue;
+        }
+
+        body>div {
+            width: 300px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid rgb(216, 232, 247);
+            border-radius: 10px;
+            padding: 1.5rem;
+            background-color: white;
+        }
+
+        p {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgb(216, 232, 247);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            line-height: 1.8;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        const serviceKey = "BJmP5aP7lITTQ7OMUb1ZqGrFxnSitSKSBLxMa2Di6WUOsCJVc5QrAw5vO376VSHddNN4bp0v/Ni4lG26kDIUdw==";
+        const baseUrl = "https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?";
+
+        let baseDate;
+        let baseTime;
+        let year, month, date, hour, min, sec;
+
+        function nowInfo() {
+            year = new Date().getFullYear();
+            month = `0${new Date().getMonth() + 1}`.slice(-2)
+            date = `0${new Date().getDate()}`.slice(-2)
+            hour = `0${new Date().getHours()}`.slice(-2);
+            min = `0${new Date().getMinutes()}`.slice(-2);
+            sec = `0${new Date().getSeconds()}`.slice(-2);
+            baseDate = `${year}${month}${date}`;
+            baseTime = hour + '00'
+        }
+        nowInfo();
+
+        const params = new URLSearchParams({
+            serviceKey: serviceKey,
+            pageNo: 1,
+            numOfRows: 10,
+            dataType: 'JSON',
+            base_date: baseDate,
+            base_time: baseTime - 100,
+            nx: 55,
+            ny: 127
+        })
+
+        const codeInfo = {
+            'T1H': ['기온', '℃'],
+            'RN1': ['1시간 강수량', '㎜'],
+            'UUU': ['동서바람성분', '㎧'],
+            'VVV': ['남북바람성분', '㎧'],
+            'REH': ['습도', '%'],
+            'PTY': ['강수형태', {
+                0: '없음',
+                1: '비',
+                2: '비/눈',
+                3: '눈',
+                4: '소나기',
+                5: '빗방울',
+                6: '빗방울눈날림',
+                7: '눈날림'
+            }],
+            'VEC': ['풍향', 'deg'],
+            'WSD': ['풍속', '㎧']
+        }
+
+        fetch(baseUrl + params)
+            .then((response) => response.json())
+            .then((json) => {
+                const items = json.response.body.items.item;
+
+                const body = document.querySelector('body')
+                const card = document.createElement('div')
+                const p = document.createElement('p');
+                const clock = document.createElement('span')
+                const h1 = document.createElement('h1')
+                const ul = document.createElement('ul');
+
+                setInterval(() => {
+                    nowInfo();
+                    p.innerText = `${year}년 ${month}월 ${date}일`
+                    clock.innerText = `${hour}:${min}:${sec}`
+                    clock.style.marginLeft = '3px';
+                    p.append(clock)
+                }, 1000)
+                h1.innerText = hour - 1 < 12 ? `오전 ${hour - 1}시 날씨` : `오후 ${hour - 13}시 날씨`;
+                card.append(p, h1)
+                body.append(card)
+                body.append(ul)
+
+                items.forEach((item) => {
+                    let item_code = codeInfo[item['category']][0];
+                    let item_unit = codeInfo[item['category']][1];
+                    const li = document.createElement('li')
+                    const code = document.createElement('span')
+                    const div = document.createElement('div');
+                    const val = document.createElement('span')
+                    const unit = document.createElement('span')
+                    code.innerText = item_code;
+                    val.innerText = item['obsrValue'];
+                    val.style.fontWeight = 'bold'
+                    unit.innerText = item_unit;
+                    unit.style.fontSize = '12px'
+                    unit.style.marginLeft = '4px'
+                    div.append(val, unit)
+                    if (item['category'] === 'PTY') {
+                        val.innerText = item_unit[item['obsrValue']]
+                        div.removeChild(unit)
+                    }
+                    li.append(code, div)
+                    ul.append(li)
+                    card.append(ul)
+                })
+            })
+            .catch((err) => console.log(err))
+
+    </script>
+</body>
+
+</html>
