@@ -8,10 +8,14 @@
 // import PracticeProps from "./components/practice/PracticeProps";
 // import { ClassProps, ClassProps2 } from "./components/practice/ClassProps";
 // import { useState } from "react";
-import HandlerEx from "./components/practice/HandlerEx";
-import HandlerEx2 from "./components/practice/HandlerEx2";
-import HandlerEx3 from "./components/practice/HandlerEx3";
-import HandlerEx4 from "./components/practice/HandlerEx4";
+// import HandlerEx from "./components/practice/HandlerEx";
+// import HandlerEx2 from "./components/practice/HandlerEx2";
+// import HandlerEx3 from "./components/practice/HandlerEx3";
+// import HandlerEx4 from "./components/practice/HandlerEx4";
+
+import PropsMap from "./components/PropsMap";
+import PororoObj from "./components/practice/PororoObj";
+import PracticeMap from "./components/practice/PracticeMap";
 
 function App() {
   // return (
@@ -30,11 +34,9 @@ function App() {
   //   <ClassProps name="뽀로로" nickname="사고뭉치" color="#0186cd" />
   //   <ClassProps2 name="루피" nickname="공주" bgColor="#ed9095" />
   // );
-
   // function test() {
   //   console.log("test");
   // }
-
   // const handleClick = (e) => {
   //   // console.log(e);
   //   e.preventDefault();
@@ -48,15 +50,29 @@ function App() {
   //     <button onClick={test}>버튼</button>
   //   </>
   // );
+  // return (
+  //   <>
+  //     <HandlerEx />
+  //     <HandlerEx2 />
+  //     <hr />
+  //     <HandlerEx3 />
+  //     <hr />
+  //     <HandlerEx4 />
+  //   </>
+  // );
 
+  const dataArr = [
+    { name: "peach", krPrice: 10000, number: 5 },
+    { name: "strawberry", krPrice: 14000, number: 1 },
+    { name: "pear", krPrice: 5000, number: 6 },
+    { name: "apple", krPrice: 10000, number: 14 },
+  ];
   return (
     <>
-      <HandlerEx />
-      <HandlerEx2 />
+      <PropsMap arr={dataArr} />
+      <PracticeMap />
       <hr />
-      <HandlerEx3 />
-      <hr />
-      <HandlerEx4 />
+      <PororoObj />
     </>
   );
 }

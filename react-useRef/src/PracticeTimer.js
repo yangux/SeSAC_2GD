@@ -28,7 +28,7 @@ export default function PracticeTimer() {
       <button
         onClick={() => {
           setRender(render + 1);
-        }} // useRef는 값이 변해도 렌더링시키지 않기 때문에 reder 시켜준다.
+        }} // useRef는 값이 변해도 렌더링시키지 않기 때문에 state값을 변화시켜서 렌더링 시켜준다.
       >
         시간
       </button>
