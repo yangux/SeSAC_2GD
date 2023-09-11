@@ -4,6 +4,8 @@ import Board from "./page/Board";
 import Index from "./page/Index";
 import NotFound from "./page/NotFound";
 import BoardDetail from "./page/BoardDetail";
+import Practice from "./page/Practice";
+import PracticeDetail from "./page/PracticeDetail";
 
 function App() {
   return (
@@ -22,8 +24,10 @@ function App() {
         <Route path="/" element={<Index />}></Route>
         <Route path="/profile" element={<Profile />}></Route>
         <Route path="/board" element={<Board />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
         <Route path="/board/:boardID" element={<BoardDetail />}></Route>
+        <Route path="/student" element={<Practice />}></Route>
+        <Route path="/student/:name" element={<PracticeDetail />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </>
   );
